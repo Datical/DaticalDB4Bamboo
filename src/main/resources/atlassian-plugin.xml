@@ -1,0 +1,32 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="DaticalDB4Bamboo"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="DaticalDB4Bamboo-resources" name="DaticalDB4Bamboo Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="DaticalDB4Bamboo.css" location="/css/DaticalDB4Bamboo.css"/>
+        <resource type="download" name="DaticalDB4Bamboo.js" location="/js/DaticalDB4Bamboo.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>DaticalDB4Bamboo</context>
+    </web-resource>
+    
+    <!-- publish our component -->
+    <component key="myPluginComponent" class="com.datical.integration.bamboo.MyPluginComponentImpl" public="true">
+        <interface>com.datical.integration.bamboo.MyPluginComponent</interface>
+    </component>
+    
+    <!-- import from the product container -->
+    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
+    
+</atlassian-plugin>
