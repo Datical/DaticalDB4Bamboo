@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.datical.integration.bamboo</groupId>
+    <groupId>datical</groupId>
     <artifactId>DaticalDB4Bamboo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -15,7 +15,7 @@
     </organization>
 
     <name>DaticalDB4Bamboo</name>
-    <description>This is the com.datical.integration.bamboo:DaticalDB4Bamboo plugin for Atlassian Bamboo.</description>
+    <description>This is the datical:DaticalDB4Bamboo plugin for Atlassian Bamboo.</description>
     <packaging>atlassian-plugin</packaging>
 
     <properties>

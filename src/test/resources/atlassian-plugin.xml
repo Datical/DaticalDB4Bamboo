@@ -1,13 +1,8 @@
-<atlassian-plugin key="com.datical.integration.bamboo" name="DaticalDB4Bamboo" plugins-version="2">
-<!-- a short block describing the plugin itself -->
+<atlassian-plugin key="${project.groupId}.${project.artifactId}-tests" name="${project.name}" plugins-version="2">
     <plugin-info>
-        <description>This is a brief textual description of the plugin</description>
-        <!-- the version of the plugin -->
-        <version>1.1</version>
-        <!-- the versions of the application this plugin is for -->
-        <application-version min="5.5" max="5.5"/>
-        <!-- details of the plugin vendor -->
-        <vendor name="Datical" url="http://www.datical.com"/>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
     </plugin-info>
 
     <!-- from our base plugin -->
@@ -17,5 +12,3 @@
     <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
     
 </atlassian-plugin>
-
-
