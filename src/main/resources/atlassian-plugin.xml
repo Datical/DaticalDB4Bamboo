@@ -36,7 +36,13 @@
 		interface="com.atlassian.sal.api.ApplicationProperties" />
 
 	<taskType key="myFirstTask" name="My First Task" class="myfirstplugin.MyFirstTask">
-		<description>A task that prints 'Hello, World!'</description>
+		<description>A task that prints as directed</description>
+		<category name="builder"/>
+		<category name="test"/>
+		<category name="deploy"/>
+  		<configuration class="helloworld.ExampleTaskConfigurator"/>
+  		<resource type="freemarker" name="edit" location="editExampleTask.ftl"/>
+  		<resource type="freemarker" name="view" location="viewExampleTask.ftl"/>		
 	</taskType>
 
 </atlassian-plugin>
