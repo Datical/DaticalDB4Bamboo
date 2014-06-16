@@ -1,1 +1,1 @@
-[@ww.textfield labelKey="helloworld.say" name="say" required='true'/]
+[@ww.textfield labelKey="daticaldb.say" name="say" required='true'/]

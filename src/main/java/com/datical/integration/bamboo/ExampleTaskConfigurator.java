@@ -1,4 +1,4 @@
-package helloworld;
+package com.datical.integration.bamboo;
 
 import com.atlassian.bamboo.collections.ActionParametersMap;
 import com.atlassian.bamboo.task.AbstractTaskConfigurator;
@@ -58,7 +58,7 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
         final String sayValue = params.getString("say");
         if (StringUtils.isEmpty(sayValue))
         {
-            errorCollection.addError("say", textProvider.getText("helloworld.say.error"));
+            errorCollection.addError("say", textProvider.getText("daticaldb.say.error"));
         }
     }
 

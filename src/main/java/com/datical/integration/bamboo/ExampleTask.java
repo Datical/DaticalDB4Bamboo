@@ -1,4 +1,4 @@
-package helloworld;
+package com.datical.integration.bamboo;
 
 import com.atlassian.bamboo.build.logger.BuildLogger;
 import com.atlassian.bamboo.task.TaskContext;

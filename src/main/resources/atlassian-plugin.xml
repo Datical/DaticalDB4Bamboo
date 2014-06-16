@@ -11,16 +11,16 @@
     </plugin-info>
 
     <!-- internationalize your plugin -->
-    <resource type="i18n" name="helloworld language" location="english"/>
+    <resource type="i18n" name="Datical DB Language" location="english"/>
 
     <!-- defines an example task -->
-    <taskType name="helloworld" class="helloworld.ExampleTask" key="test">
-      <description>A simple Hello World Task</description>
+    <taskType name="Datical DB" class="com.datical.integration.bamboo.ExampleTask" key="daticaldb">
+      <description>A simple way to execute Datical DB</description>
       <resource type="download" name="icon" location="datical.png"/>
       <category name="builder"/>
       <category name="test"/>
       <category name="deployment"/>
-      <configuration class="helloworld.ExampleTaskConfigurator"/>
+      <configuration class="com.datical.integration.bamboo.ExampleTaskConfigurator"/>
       <resource type="freemarker" name="edit" location="editExampleTask.ftl"/>
       <resource type="freemarker" name="view" location="viewExampleTask.ftl"/>
     </taskType>

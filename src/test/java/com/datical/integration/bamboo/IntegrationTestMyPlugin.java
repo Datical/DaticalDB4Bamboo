@@ -1,4 +1,4 @@
-package it;
+package com.datical.integration.bamboo;
 
 import junit.framework.TestCase;
 
