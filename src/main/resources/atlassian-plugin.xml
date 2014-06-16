@@ -16,9 +16,10 @@
     <!-- defines an example task -->
     <taskType name="helloworld" class="helloworld.ExampleTask" key="test">
       <description>A simple Hello World Task</description>
-      <!-- Categories available in 3.1: "builder", "test" and "deployment"
-      <category name=""/>
-      -->
+      <resource type="download" name="icon" location="datical.png"/>
+      <category name="builder"/>
+      <category name="test"/>
+      <category name="deployment"/>
       <configuration class="helloworld.ExampleTaskConfigurator"/>
       <resource type="freemarker" name="edit" location="editExampleTask.ftl"/>
       <resource type="freemarker" name="view" location="viewExampleTask.ftl"/>
