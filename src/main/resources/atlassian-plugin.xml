@@ -37,12 +37,13 @@
 
 	<taskType key="myFirstTask" name="My First Task" class="myfirstplugin.MyFirstTask">
 		<description>A task that prints as directed</description>
+		<resource type="download" name="icon" location="/images/datical.png"/>
 		<category name="builder"/>
 		<category name="test"/>
 		<category name="deploy"/>
-  		<configuration class="helloworld.ExampleTaskConfigurator"/>
-  		<resource type="freemarker" name="edit" location="editExampleTask.ftl"/>
-  		<resource type="freemarker" name="view" location="viewExampleTask.ftl"/>		
+  		<configuration class="myfirstplugin.ExampleTaskConfigurator"/>
+  		<resource type="freemarker" name="edit" location="/ftl/editExampleTask.ftl"/>
+  		<resource type="freemarker" name="view" location="/ftl/viewExampleTask.ftl"/>		
 	</taskType>
 
 </atlassian-plugin>

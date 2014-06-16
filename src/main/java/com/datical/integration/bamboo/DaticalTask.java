@@ -19,7 +19,9 @@ public class DaticalTask implements TaskType {
 
 		final BuildLogger buildLogger = taskContext.getBuildLogger();
 
-		buildLogger.addBuildLogEntry("Greetings from Datical!!!");
+        final String say = taskContext.getConfigurationMap().get("say");
+ 
+        buildLogger.addBuildLogEntry(say);		
 
 		builder.success();
 
