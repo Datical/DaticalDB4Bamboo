@@ -1,49 +1,26 @@
-<atlassian-plugin key="${project.groupId}.${project.artifactId}"
-	name="${project.name}" plugins-version="2">
-	<plugin-info>
-		<description>${project.description}</description>
-		<version>${project.version}</version>
-		<vendor name="${project.organization.name}" url="${project.organization.url}" />
-		<param name="plugin-icon">images/pluginIcon.png</param>
-		<param name="plugin-logo">images/pluginLogo.png</param>
-	</plugin-info>
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="1">
+    <!--
+    note that this plugin has to be a plugins-version '1' plugin as build module types (repositories, tasks, pre/post processors)
+    are plugins v1 only. Module types such as REST, Gadgets, Servlets and Filters are plugins v2 and cannot be mixed in the same
+    plugin as plugins v1 module types for the time being
+    -->
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
 
-	<!-- add our i18n resource -->
-	<resource type="i18n" name="i18n" location="DaticalDB4Bamboo" />
+    <!-- internationalize your plugin -->
+    <resource type="i18n" name="helloworld language" location="english"/>
 
-	<!-- add our web resources -->
-	<web-resource key="DaticalDB4Bamboo-resources" name="DaticalDB4Bamboo Web Resources">
-		<dependency>com.atlassian.auiplugin:ajs</dependency>
-
-		<resource type="download" name="DaticalDB4Bamboo.css"
-			location="/css/DaticalDB4Bamboo.css" />
-		<resource type="download" name="DaticalDB4Bamboo.js"
-			location="/js/DaticalDB4Bamboo.js" />
-		<resource type="download" name="images/" location="/images" />
-
-		<context>DaticalDB4Bamboo</context>
-	</web-resource>
-
-	<!-- publish our component -->
-	<component key="myPluginComponent"
-		class="com.datical.integration.bamboo.MyPluginComponentImpl" public="true">
-		<interface>com.datical.integration.bamboo.MyPluginComponent
-		</interface>
-	</component>
-
-	<!-- import from the product container -->
-	<component-import key="applicationProperties"
-		interface="com.atlassian.sal.api.ApplicationProperties" />
-
-	<taskType key="myFirstTask" name="My First Task" class="myfirstplugin.MyFirstTask">
-		<description>A task that prints as directed</description>
-		<resource type="download" name="icon" location="/images/datical.png"/>
-		<category name="builder"/>
-		<category name="test"/>
-		<category name="deploy"/>
-  		<configuration class="myfirstplugin.ExampleTaskConfigurator"/>
-  		<resource type="freemarker" name="edit" location="/ftl/editExampleTask.ftl"/>
-  		<resource type="freemarker" name="view" location="/ftl/viewExampleTask.ftl"/>		
-	</taskType>
-
+    <!-- defines an example task -->
+    <taskType name="helloworld" class="helloworld.ExampleTask" key="test">
+      <description>A simple Hello World Task</description>
+      <!-- Categories available in 3.1: "builder", "test" and "deployment"
+      <category name=""/>
+      -->
+      <configuration class="helloworld.ExampleTaskConfigurator"/>
+      <resource type="freemarker" name="edit" location="editExampleTask.ftl"/>
+      <resource type="freemarker" name="view" location="viewExampleTask.ftl"/>
+    </taskType>
 </atlassian-plugin>
