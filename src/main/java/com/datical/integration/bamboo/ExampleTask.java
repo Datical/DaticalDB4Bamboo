@@ -48,6 +48,16 @@ public class ExampleTask implements TaskType {
 		// TODO: test sql and add the following to command array
 		//--genSQL --genRollbackSQL
 		
+		String genSQL = "";
+		if (exportSQL.equals("true")) {
+			genSQL = "--genSQL";
+		}
+		
+		String genRollbackSQL = "";
+		if (exportRollbackSQL.equals("true")) {
+			genRollbackSQL = "--genRollbackSQL";
+		}
+		
 		//command
 		final Map<String, String> commandMap = new HashMap<String, String>();
 		commandMap.put("Change Log Sync", "changelogSync");
@@ -70,20 +80,19 @@ public class ExampleTask implements TaskType {
 		commandMap.put("Show Status (Detailed)", "statusDetails");
 		commandMap.put("Create New Datical DB Project", "newProj");
 		commandMap.put("Create New Database Definition", "newDBDef");
-		buildLogger.addBuildLogEntry("command: " + command);
-		buildLogger.addBuildLogEntry("command lookup: " + commandMap.get(command));
-		
+		String realcommand =  commandMap.get(command);
 		
 		
 		final String args = taskContext.getConfigurationMap().get("args");
-		String[] myArgs = args.split(" ");
+		
+		//String[] myArgs = args.split(" ");
 
 		buildLogger.addBuildLogEntry("Location of Datical DB: " + hammer);
 
 		TaskResultBuilder builder = TaskResultBuilder.create(taskContext);
 		
 		ExternalProcess process = processService.createProcess(taskContext,
-				new ExternalProcessBuilder().command(Arrays.asList(hammer, "-drivers", drivers, "--project", projectDir, command, args))
+				new ExternalProcessBuilder().command(Arrays.asList(hammer, "-drivers", drivers, "--project", projectDir, genSQL, genRollbackSQL, realcommand, args))
 						.workingDirectory(taskContext.getWorkingDirectory()));
 
 		
