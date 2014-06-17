@@ -31,6 +31,10 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
 		config.put("hammer", params.getString("hammer"));
 		config.put("drivers", params.getString("drivers"));
 		config.put("projectDir", params.getString("projectDir"));
+		config.put("command", params.getString("command"));
+		config.put("args", params.getString("args"));
+		config.put("exportSQL", params.getString("exportSQL"));
+		config.put("exportRollbackSQL", params.getString("exportRollbackSQL"));
 
 		return config;
 	}
@@ -75,7 +79,11 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
 		context.put("hammer", "ex: C:\\Program Files (x86)\\DaticalDB\\repl\\hammer.bat");
 		context.put("drivers", "ex: C:\\MyDrivers");
 		context.put("projectDir", "ex: C:\\Users\\<username>\\datical\\MyProject");
-
+		context.put("command", "ex: Deploy");
+		context.put("args", "ex: QA");
+		context.put("exportSQL", "true");
+		context.put("exportRollbackSQL", "true");
+		
 	}
 
 	@Override
@@ -87,7 +95,13 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
 		context.put("hammer", taskDefinition.getConfiguration().get("hammer"));
 		context.put("drivers", taskDefinition.getConfiguration().get("drivers"));
 		context.put("projectDir", taskDefinition.getConfiguration().get("projectDir"));
+		context.put("command", taskDefinition.getConfiguration().get("command"));
+		context.put("args", taskDefinition.getConfiguration().get("args"));
+		context.put("exportSQL", taskDefinition.getConfiguration().get("exportSQL"));
+		context.put("exportRollbackSQL", taskDefinition.getConfiguration().get("exportRollbackSQL"));
 
+		
+		
 	}
 
 	@Override
@@ -98,6 +112,10 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
 		context.put("hammer", taskDefinition.getConfiguration().get("hammer"));
 		context.put("drivers", taskDefinition.getConfiguration().get("drivers"));
 		context.put("projectDir", taskDefinition.getConfiguration().get("projectDir"));
+		context.put("command", taskDefinition.getConfiguration().get("command"));
+		context.put("args", taskDefinition.getConfiguration().get("args"));
+		context.put("exportSQL", taskDefinition.getConfiguration().get("exportSQL"));
+		context.put("exportRollbackSQL", taskDefinition.getConfiguration().get("exportRollbackSQL"));
 
 	}
 
@@ -123,6 +141,14 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
 			errorCollection.addError("projectDir",
 					textProvider.getText("daticaldb.projectDir.error"));
 		}
+
+		
+		final String commandValue = params.getString("projectDir");
+		if (StringUtils.isEmpty(commandValue)) {
+			errorCollection.addError("command",
+					textProvider.getText("daticaldb.command.error"));
+		}
+		
 	}
 
 	public void setTextProvider(final TextProvider textProvider) {
