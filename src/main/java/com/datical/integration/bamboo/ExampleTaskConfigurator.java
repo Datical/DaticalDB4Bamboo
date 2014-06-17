@@ -24,7 +24,7 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
 
         config.put("hammer", params.getString("hammer"));
         config.put("drivers", params.getString("drivers"));
-        config.put("project", params.getString("project"));
+        config.put("projectDir", params.getString("projectDir"));
         
 
         return config;
@@ -37,7 +37,7 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
 
         context.put("hammer", "ex: C:\\Program Files (x86)\\DaticalDB\\repl\\hammer.bat");
         context.put("drivers", "ex: C:\\MyDrivers");
-        context.put("project", "ex: C:\\Users\\<username>\\datical\\MyProject");
+        context.put("projectDir", "ex: C:\\Users\\<username>\\datical\\MyProject");
         
         
     }
@@ -49,7 +49,7 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
 
         context.put("hammer", taskDefinition.getConfiguration().get("hammer"));
         context.put("drivers", taskDefinition.getConfiguration().get("drivers"));
-        context.put("project", taskDefinition.getConfiguration().get("project"));
+        context.put("projectDir", taskDefinition.getConfiguration().get("projectDir"));
         
     }
 
@@ -59,7 +59,7 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
         super.populateContextForView(context, taskDefinition);
         context.put("hammer", taskDefinition.getConfiguration().get("hammer"));
         context.put("drivers", taskDefinition.getConfiguration().get("drivers"));
-        context.put("project", taskDefinition.getConfiguration().get("project"));
+        context.put("projectDir", taskDefinition.getConfiguration().get("projectDir"));
         
     }
 
@@ -80,10 +80,10 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
             errorCollection.addError("drivers", textProvider.getText("daticaldb.drivers.error"));
         }
 
-        final String projectValue = params.getString("project");
-        if (StringUtils.isEmpty(projectValue))
+        final String projectDirValue = params.getString("projectDir");
+        if (StringUtils.isEmpty(projectDirValue))
         {
-            errorCollection.addError("project", textProvider.getText("daticaldb.project.error"));
+            errorCollection.addError("projectDir", textProvider.getText("daticaldb.projectDir.error"));
         }
     }
 

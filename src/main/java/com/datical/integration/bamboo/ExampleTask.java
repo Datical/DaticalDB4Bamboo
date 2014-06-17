@@ -32,14 +32,15 @@ public class ExampleTask implements TaskType {
 
 		final String hammer = taskContext.getConfigurationMap().get("hammer");
 		final String drivers = taskContext.getConfigurationMap().get("drivers");
-		final String project = taskContext.getConfigurationMap().get("project");
+		final String projectDir = taskContext.getConfigurationMap().get("projectDir");
+		final String command = "checkdrivers";
 
 		buildLogger.addBuildLogEntry("Location of Datical DB: " + hammer);
 
 		TaskResultBuilder builder = TaskResultBuilder.create(taskContext);
 		
 		ExternalProcess process = processService.createProcess(taskContext,
-				new ExternalProcessBuilder().command(Arrays.asList(hammer, "-drivers", drivers, "--proejct", project))
+				new ExternalProcessBuilder().command(Arrays.asList(hammer, "-drivers", drivers, "--project", projectDir, command))
 						.workingDirectory(taskContext.getWorkingDirectory()));
 
 		
