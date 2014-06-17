@@ -11,9 +11,6 @@
        		size="1"
        		required="true"/]
 [@ww.textfield labelKey="daticaldb.args" name="args" required="false"/]
-
-
-
 [@ww.checkbox labelKey="daticaldb.exportSQL" name="exportSQL" toggle="false" required="false" /]
 [@ww.checkbox labelKey="daticaldb.exportRollbackSQL" name="exportRollbackSQL" toggle="false" required="false" /]
                   

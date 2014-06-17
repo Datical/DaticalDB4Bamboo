@@ -6,8 +6,8 @@ public class DatCommand {
 	private String description;
 
 	public DatCommand(String command, String description) {
-
-		new DatCommand(command, description);
+		this.command = command;
+		this.description = description;
 	}
 
 	public String getCommand() {
