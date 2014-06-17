@@ -22,7 +22,10 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
     {
         final Map<String, String> config = super.generateTaskConfigMap(params, previousTaskDefinition);
 
-        config.put("say", params.getString("say"));
+        config.put("hammer", params.getString("hammer"));
+        config.put("drivers", params.getString("drivers"));
+        config.put("project", params.getString("project"));
+        
 
         return config;
     }
@@ -32,7 +35,11 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
     {
         super.populateContextForCreate(context);
 
-        context.put("say", "Hello, World!");
+        context.put("hammer", "ex: C:\\Program Files (x86)\\DaticalDB\\repl\\hammer.bat");
+        context.put("drivers", "ex: C:\\MyDrivers");
+        context.put("project", "ex: C:\\Users\\<username>\\datical\\MyProject");
+        
+        
     }
 
     @Override
@@ -40,14 +47,20 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
     {
         super.populateContextForEdit(context, taskDefinition);
 
-        context.put("say", taskDefinition.getConfiguration().get("say"));
+        context.put("hammer", taskDefinition.getConfiguration().get("hammer"));
+        context.put("drivers", taskDefinition.getConfiguration().get("drivers"));
+        context.put("project", taskDefinition.getConfiguration().get("project"));
+        
     }
 
     @Override
     public void populateContextForView(@NotNull final Map<String, Object> context, @NotNull final TaskDefinition taskDefinition)
     {
         super.populateContextForView(context, taskDefinition);
-        context.put("say", taskDefinition.getConfiguration().get("say"));
+        context.put("hammer", taskDefinition.getConfiguration().get("hammer"));
+        context.put("drivers", taskDefinition.getConfiguration().get("drivers"));
+        context.put("project", taskDefinition.getConfiguration().get("project"));
+        
     }
 
     @Override
@@ -55,10 +68,22 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator
     {
         super.validate(params, errorCollection);
 
-        final String sayValue = params.getString("say");
-        if (StringUtils.isEmpty(sayValue))
+        final String hammerValue = params.getString("hammer");
+        if (StringUtils.isEmpty(hammerValue))
         {
-            errorCollection.addError("say", textProvider.getText("daticaldb.say.error"));
+            errorCollection.addError("hammer", textProvider.getText("daticaldb.hammer.error"));
+        }
+
+        final String driversValue = params.getString("drivers");
+        if (StringUtils.isEmpty(driversValue))
+        {
+            errorCollection.addError("drivers", textProvider.getText("daticaldb.drivers.error"));
+        }
+
+        final String projectValue = params.getString("project");
+        if (StringUtils.isEmpty(projectValue))
+        {
+            errorCollection.addError("project", textProvider.getText("daticaldb.project.error"));
         }
     }
 
