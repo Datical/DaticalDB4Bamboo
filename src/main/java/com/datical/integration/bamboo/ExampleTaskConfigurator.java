@@ -5,16 +5,11 @@ import com.atlassian.bamboo.task.AbstractTaskConfigurator;
 import com.atlassian.bamboo.task.TaskDefinition;
 import com.atlassian.bamboo.utils.error.ErrorCollection;
 import com.atlassian.struts.TextProvider;
-import com.google.common.base.Function;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Maps;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Map;
 
 public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
@@ -38,38 +33,6 @@ public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
 
 		return config;
 	}
-
-	private static final List<DatCommand> datCommandList = ImmutableList.of(
-			
-			new DatCommand("changelogSync", "Change Log Sync"), 
-			new DatCommand("checkdrivers", "Check Drivers"), 
-			new DatCommand("clearCheckSums", "Clear Check Sums"), 
-			new DatCommand("dbshow", "List all Datbases in a Project"),
-			new DatCommand("deploy", "Deploy"), 
-			new DatCommand("deploy-autoRollback", "Deploy with Auto Rollback"),
-			new DatCommand("diff", "Compare Schemas (Report)"), 
-			new DatCommand("diffChangelog", "Compare Schemas (Change Log)"),
-			new DatCommand("forecast", "Forecast"), 
-			new DatCommand("history", "Show History"),
-			new DatCommand("installLicense", "Install a License File"), 
-			new DatCommand("rollback", "Rollback"), 
-			new DatCommand("schemaStats", "Display Summary Schema Info"),
-			new DatCommand("set", "Set Property"), 
-			new DatCommand("show", "Show Property"),
-			new DatCommand("snapshot", "Snapshot"), 
-			new DatCommand("status", "Show Status"), 
-			new DatCommand("statusDetails", "Show Status (Detailed)"), 
-			new DatCommand("newProj", "Create New Datical DB Project"),
-			new DatCommand("newDBDef", "Create New Database Definition")
-	);
-	
-	private static final Map<String, DatCommand> datCommandMap = Maps
-			.uniqueIndex(datCommandList, new Function<DatCommand, String>() {
-				@Override
-				public String apply(DatCommand datCommand) {
-					return datCommand.getCommand();
-				}
-			});
 
 	@Override
 	public void populateContextForCreate(
