@@ -12,6 +12,12 @@
 
     <!-- internationalize your plugin -->
     <resource type="i18n" name="Datical DB Language" location="english"/>
+    
+    
+	<web-resource key="daticalicon" name="Datical Icon">
+    	<resource type="download" name="datical.png" location="datical.png"/>
+    	<context>atl.general</context>
+  	</web-resource>
 
     <!-- defines an example task -->
     <taskType name="Datical DB" class="com.datical.integration.bamboo.DaticalDBTask" key="daticaldb">
