@@ -24,6 +24,5 @@
 'Create New Database Definition'
 }" emptyOption="false" /]
 [@ww.textfield labelKey="daticaldb.args" name="args" required="false"/]
-[@ww.checkbox labelKey="daticaldb.exportSQL" name="exportSQL" toggle="false" required="false" /]
-[@ww.checkbox labelKey="daticaldb.exportRollbackSQL" name="exportRollbackSQL" toggle="false" required="false" /]
-                  
+[@ww.checkbox labelKey="daticaldb.exportSQL" name="exportSQL" required="false" /]
+[@ww.checkbox labelKey="daticaldb.exportRollbackSQL" name="exportRollbackSQL" required="false" /]
