@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public class ExampleTaskConfigurator extends AbstractTaskConfigurator {
+public class DaticalDBTaskConfigurator extends AbstractTaskConfigurator {
 	private TextProvider textProvider;
 
 	@NotNull

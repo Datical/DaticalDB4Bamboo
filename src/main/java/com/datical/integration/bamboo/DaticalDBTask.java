@@ -19,11 +19,11 @@ import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang.ArrayUtils;
 import org.jetbrains.annotations.NotNull;
 
-public class ExampleTask implements TaskType {
+public class DaticalDBTask implements TaskType {
 
 	private final ProcessService processService;
 
-	public ExampleTask(final ProcessService processService) {
+	public DaticalDBTask(final ProcessService processService) {
 		this.processService = processService;
 	}
 
