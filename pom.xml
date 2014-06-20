@@ -14,7 +14,7 @@
         <url>http://www.datical.com/</url>
     </organization>
 
-    <name>DaticlDB</name>
+    <name>Datical DB</name>
     <description>This is the Datical DB plugin for Atlassian Bamboo.</description>
     <packaging>atlassian-plugin</packaging>
 
